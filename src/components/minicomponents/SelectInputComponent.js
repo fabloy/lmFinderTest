@@ -6,11 +6,6 @@ import { UnitsStateContext } from "../../context-component/ContextComponent";
 const SelectInputComponent = ({subdSelected})=>{
   const reducer = useContext( UnitsStateContext );
 
-  useEffect(()=>{
-  console.log(reducer.allSubdepartments())
-  
-  },[])
-
   //funzione che in base al sottoreparto selezionato nella option setta i prodotti da msotra
   //ovvero tutti i prodotti del sottoreparto selezionato:
    const getProductsBySubdepartment = (subdepartment)=>{

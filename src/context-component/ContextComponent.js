@@ -28,7 +28,7 @@ const reducer = {
     departmentSelected:[],
     setDepartmentSelected: (department)=>{
         reducer.departmentSelected = department
-        reducer.subdepartmentSelected = {}
+        // reducer.subdepartmentSelected = {}
     },
 
     subdepartmentSelected:[],

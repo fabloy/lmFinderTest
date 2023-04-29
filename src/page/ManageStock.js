@@ -24,14 +24,7 @@ const editStock = ()=>{
   setProductToShow({...productSelected, stock:newStock}) // aggiornamento state locale
 }
 
- useEffect(()=>{
-  // const getUnits = async ()=>{
-  //   let res = await axios('../reparti.json')
-  //   console.log(res)
-  //  }
-  //  getUnits()
-  setMsg(`Hai appena aggiornato lo stock ${productToShow.stock}`)
- 
+const updateValueInAllDepartments = ()=>{
   //modifica alldepartments:
   /*Variabile di tutti i rep. che verrà modificata per poi 
   essere pushata nell'arrai dello state globale di tutti i rep. "allDepartments"
@@ -60,6 +53,18 @@ const editStock = ()=>{
 
   //aggiornamento dello state globale di tutti i reparti :
   editAllDepartments(alldep)
+}
+
+ useEffect(()=>{
+  // const getUnits = async ()=>{
+  //   let res = await axios('../reparti.json')
+  //   console.log(res)
+  //  }
+  //  getUnits()
+  setMsg(`Hai appena aggiornato lo stock ${productToShow.stock}`)
+  
+  updateValueInAllDepartments()
+  console.log(departmentSelected, subdepartmentSelected)
   },[productToShow])
 
 return (

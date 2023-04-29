@@ -51,8 +51,21 @@ const Subdepartment = ()=>{
          </p> 
           { !params.unitname && !params.subdepartment ? 
           <SelectInputComponent 
-           subdSelected={()=>{
+           subdSelected={(e)=>{
             setProdToShow( reducer.productsToShow )
+            
+            //Qua bisogna selezionare il reparto corrente partendo dal sottorepartoselezioanto
+            reducer.allDepartments.map( dep => dep.sottoreparti.map( sub =>{
+           
+              if(sub.nome === reducer.subdepartmentSelected[0].nome){
+                
+                reducer.setDepartmentSelected([dep])
+                // reducer.setSubdepartmentSelected([sub])
+                console.log(reducer.departmentSelected)
+              }
+              return
+            }))
+            
           }} 
           /> 
           :

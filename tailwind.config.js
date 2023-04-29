@@ -11,10 +11,11 @@ module.exports = {
         lmgreen:'#188803',
         standardgray:{
           dark:'#e6e6e6'
-        } 
+        }
       },
       minHeight: {
         '10vh': '10vh',
+        '80vh':'80vh'
       }
     },
   },

@@ -11,7 +11,6 @@ const ProductCardDetail = ()=>{
     const [subdSelected, setSubdSelected] = useState([]);
 
     useEffect(()=>{
-      console.log(productSelected.stock)
       //in questo snippet vengono definiti il reparto e il sottorep. corrispondenti al prodotto selezionato
       setDepartmentSelected(
         getDepAndSubFromProduct(productSelected, allDepartments, allSubdepartments).department

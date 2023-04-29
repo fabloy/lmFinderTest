@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 const ProductsBySubdepartment = ()=>{
   const reducer = useContext( UnitsStateContext )
   const [products, setProducts] = useState(reducer.productsToShow)
+
+  
  
  return(
       <div>
