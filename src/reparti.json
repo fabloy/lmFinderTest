@@ -1,0 +1,155 @@
+
+  {
+    "reparti": [
+      {
+        "id": 1,
+        "nome": "Edilizia",
+        "sottoreparti": [
+          {
+            "id": 1,
+            "nome": "Polveri",
+            "prodotti": [
+              {
+                "id": 1,
+                "nome": "Mv40",
+                "prezzo": 3.4,
+                "stock": 450,
+                "venduti": 0,
+                "rotture": 10
+              },
+              {
+                "id": 2,
+                "nome": "MM30",
+                "prezzo": 2.4,
+                "stock": 250,
+                "venduti": 20,
+                "rotture": 60
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "nome": "Cartongesso",
+            "prodotti": [
+              {
+                "id": 1,
+                "nome": "Lastra cartongesso 120x200 sp.12.5",
+                "prezzo": 6.5,
+                "stock": 250,
+                "venduti": 20,
+                "rotture": 4
+              },
+              {
+                "id": 2,
+                "nome": "Lastra cartongesso 120x200 sp.10",
+                "prezzo": 4.5,
+                "stock": 550,
+                "venduti": 20,
+                "rotture": 4
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "nome": "Falegnameria",
+        "sottoreparti": [
+          {
+            "id": 1,
+            "nome": "porte",
+            "prodotti": [
+              {
+                "id": 1,
+                "nome": "porta A",
+                "prezzo": 3.4,
+                "stock": 450,
+                "venduti": 0,
+                "rotture": 10
+              },
+              {
+                "id": 2,
+                "nome": "porta B",
+                "prezzo": 2.4,
+                "stock": 250,
+                "venduti": 20,
+                "rotture": 60
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "nome": "finestre",
+            "prodotti": [
+              {
+                "id": 1,
+                "nome": "finestra A",
+                "prezzo": 6.5,
+                "stock": 250,
+                "venduti": 20,
+                "rotture": 4
+              },
+              {
+                "id": 2,
+                "nome": "finestra B",
+                "prezzo": 4.5,
+                "stock": 550,
+                "venduti": 20,
+                "rotture": 4
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "nome": "Giardino",
+        "sottoreparti": [
+          {
+            "id": 1,
+            "nome": "Irrigazione",
+            "prodotti": [
+              {
+                "id": 1,
+                "nome": "Gomma acqua A",
+                "prezzo": 3.4,
+                "stock": 450,
+                "venduti": 0,
+                "rotture": 10
+              },
+              {
+                "id": 2,
+                "nome": "Gomma acqua B",
+                "prezzo": 2.4,
+                "stock": 250,
+                "venduti": 20,
+                "rotture": 60
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "nome": "Vasi",
+            "prodotti": [
+              {
+                "id": 1,
+                "nome": "Vaso A",
+                "prezzo": 6.5,
+                "stock": 250,
+                "venduti": 20,
+                "rotture": 4
+              },
+              {
+                "id": 2,
+                "nome": "Vaso B",
+                "prezzo": 4.5,
+                "stock": 550,
+                "venduti": 20,
+                "rotture": 4
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }

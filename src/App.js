@@ -1,23 +1,35 @@
-import logo from './logo.svg';
+import Header from './components/Header'
+import Home from './page/Home'
+import UnitPage from './page/UnitPage'
+import Subdepartment from './page/Subdepartment'
+import ContextComponent from './context-component/ContextComponent'
+import ProductDetail from './page/ProductDetail'
 import './App.css';
+import { Route } from 'react-router';
+import { BrowserRouter, Routes} from 'react-router-dom';
+import ManageStock from "../src/page/ManageStock"
 
 function App() {
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className=" bg-slate-100 w-full h-screen mx-auto flex flex-col ">
+      <Header></Header>
+     
+      <BrowserRouter>
+       <ContextComponent child={ 
+        <Routes>
+          <Route path="/" element={<Home></Home>} /> 
+          <Route path="/unit/:unitname" element = {<UnitPage></UnitPage>}/>
+          <Route path="/unit/:unitname/:subdepartment" element = {<Subdepartment></Subdepartment>}/>
+          <Route path="/searchall" element = {<Subdepartment></Subdepartment>}/>
+          <Route path="/productdetail/:productname" element = {<ProductDetail></ProductDetail>}/>
+          <Route path='/managestock/:productname' element={<ManageStock></ManageStock>}></Route>
+        </Routes>
+       }>
+       </ContextComponent>
+      </BrowserRouter>
+
+     
     </div>
   );
 }

@@ -1,0 +1,24 @@
+
+- creare un context per gestire uno state globalmente e non passare 
+  le props globalmente.
+
+- Questo state globale può essere un oggetto {} reducer
+  che internamente ha varie proprietà : 
+   1. allDepartments che conterrà Unit ovvero tutto l'array derivante da reaprti.json
+   2. allProducts che conterrà tutti i prodotti
+   3. departemtSelected che sarà l'array del reparto selezionato contenente i sottoreparti
+      e tutti i prodotti di ogni sottoreparto
+   4. productsToShow ovvero l'array con gli oggetti dei prodotti da mostarare, oppure
+      del singolo prodotto nel caso ne fosse stato cercato e trovato solo uno specifico
+      tramite campo di input  
+    5. productSelected questo è un oggetto contenente un singolo prodotto da mostrare qualore
+       l'utente ne avesse cliccato uno, questo diventrà l'oggetto corrente da mostrare.
+
+- Creare delle actionFunction (5) ovvero delle azioni apposite 
+  che modificheranno gli state globali nell'oggetto reducer
+
+- In Subdepartment eliminare più passaggi di props possibili ai sottocompoenenti e 
+piuttosto utilizzare al massimo lo state globale context creato,
+mostrando i dati nella view e utilizzando delle funzioni "dispatch" per modificare 
+i valori nel reducer.
+
