@@ -6,19 +6,35 @@ import getDepAndSubFromProduct from "../methods/getDepAndSubFromProd"
 
 
 const ProductCardDetail = ()=>{
-    const {productSelected, allDepartments, allSubdepartments} = useContext(UnitsStateContext) //reducer
-    const [departmentSelected, setDepartmentSelected] = useState([]);
-    const [subdSelected, setSubdSelected] = useState([]);
+    const {
+      productSelected, 
+      allDepartments, 
+      allSubdepartments, 
+      departmentSelected, 
+      subdepartmentSelected,
+      setDepartmentSelected,
+      setSubdepartmentSelected
+    } = useContext(UnitsStateContext) //reducer
+    const [currentDepartment, setCurrentDepartment] = useState([]);
+    const [currentSubdepartment, setCurrentSubdepartment] = useState([]);
 
     useEffect(()=>{
       //in questo snippet vengono definiti il reparto e il sottorep. corrispondenti al prodotto selezionato
-      setDepartmentSelected(
+      setCurrentDepartment(
         getDepAndSubFromProduct(productSelected, allDepartments, allSubdepartments).department
         )
-      setSubdSelected(
+      setCurrentSubdepartment(
         getDepAndSubFromProduct(productSelected, allDepartments, allSubdepartments).subdepartment
       )
-    },[])
+   
+      let val = getDepAndSubFromProduct(productSelected, allDepartments, allSubdepartments)
+    
+    let departmentToSet = allDepartments.filter( dep => dep.nome===val.department)
+    setDepartmentSelected(departmentToSet[0]);
+    let subdepartmentToSet = departmentToSet[0].sottoreparti.filter(subd=> subd.nome=== val.subdepartment)
+    setSubdepartmentSelected(subdepartmentToSet[0]);
+    console.log("in productdetail",departmentSelected, subdepartmentSelected)
+    },[currentDepartment, currentSubdepartment])
 
     return(
      <div class="max-w-sm rounded overflow-hidden shadow-2xl">
@@ -34,10 +50,10 @@ const ProductCardDetail = ()=>{
          prezzo: <span className="text-lmgreen font-semibold">{productSelected.prezzo}$</span>
        </p>
        <p class="text-gray-700 text-base">
-       reparto: <span className="text-lmgreen font-semibold">{departmentSelected}</span>
+       reparto: <span className="text-lmgreen font-semibold">{currentDepartment}</span>
        </p>
        <p class="text-gray-700 text-base">
-       sottoreparto: <span className="text-lmgreen font-semibold">{subdSelected}</span>
+       sottoreparto: <span className="text-lmgreen font-semibold">{currentSubdepartment}</span>
        </p>
      </div>
      <div class="px-6 pt-4 pb-2 text-center">

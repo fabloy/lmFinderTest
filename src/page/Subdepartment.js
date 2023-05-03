@@ -23,6 +23,7 @@ const Subdepartment = ()=>{
     if(!params.unitname && !params.subdepartment){
       reducer.setProductsToShow(getAllProducts().allProducts)
       setProdToShow(reducer.productsToShow)
+      console.log("Subdpertment", reducer.productsToShow)
     }else{
      /* altrimenti se i params  sono settati mostrami tutti i prodotti esistenti 
      nel sottoreparto selezionato*/
@@ -57,9 +58,9 @@ const Subdepartment = ()=>{
             //Qua bisogna selezionare il reparto corrente partendo dal sottorepartoselezioanto
             reducer.allDepartments.map( dep => dep.sottoreparti.map( sub =>{
            
-              if(sub.nome === reducer.subdepartmentSelected[0].nome){
+              if(sub.nome === reducer.subdepartmentSelected.nome){
                 
-                reducer.setDepartmentSelected([dep])
+                reducer.setDepartmentSelected(dep)
                 // reducer.setSubdepartmentSelected([sub])
                 console.log(reducer.departmentSelected)
               }

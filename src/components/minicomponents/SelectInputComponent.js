@@ -9,10 +9,16 @@ const SelectInputComponent = ({subdSelected})=>{
   //funzione che in base al sottoreparto selezionato nella option setta i prodotti da msotra
   //ovvero tutti i prodotti del sottoreparto selezionato:
    const getProductsBySubdepartment = (subdepartment)=>{
+    // let subdepartmentSelected = reducer.allSubdepartments().filter( subd => subd.nome === subdepartment)
+    // reducer.setSubdepartmentSelected(subdepartmentSelected)
+    // subdepartmentSelected.length>0 ? reducer.setProductsToShow(subdepartmentSelected[0].prodotti) : reducer.setProductsToShow( getAllProducts().allProducts) //
+   
     let subdepartmentSelected = reducer.allSubdepartments().filter( subd => subd.nome === subdepartment)
-    reducer.setSubdepartmentSelected(subdepartmentSelected)
+    reducer.setSubdepartmentSelected(subdepartmentSelected[0])
+    console.log("subdepartmentselected in selctinput",subdepartmentSelected.length>0)
     subdepartmentSelected.length>0 ? reducer.setProductsToShow(subdepartmentSelected[0].prodotti) : reducer.setProductsToShow( getAllProducts().allProducts) //
-   }
+  
+  }
 
   return(
         <aside className="" >

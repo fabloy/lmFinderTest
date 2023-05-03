@@ -3,73 +3,69 @@ import GoBack from "../components/GoBack";
 import { Link, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { UnitsStateContext } from "../context-component/ContextComponent"
-import axios from 'axios';
+import getDepAndSubFromProduct from "../methods/getDepAndSubFromProd";
 
 export default function ManageStock() {
- const params = useParams()
+ 
  const {
   productSelected, 
   editAllDepartments, 
   departmentSelected,
   subdepartmentSelected, 
   editProductSelected, 
-  allDepartments} = useContext(UnitsStateContext)
+  allDepartments
+  } = useContext(UnitsStateContext)
  const [newStock, setNewStock] = useState(productSelected.stock)
  const [productToShow, setProductToShow] = useState(productSelected)
- const [msg, setMsg] = useState("")
  
-
-const editStock = ()=>{
+ //Funzione che aggiornane nel reducer lo state globale di productSelected e dello state locale productToSho
+ const editStock = ()=>{
   editProductSelected({...productSelected, stock:newStock}) //aggiornamento state globale
   setProductToShow({...productSelected, stock:newStock}) // aggiornamento state locale
-}
+ }
 
-const updateValueInAllDepartments = ()=>{
+ /*
+ Funzione che aggiorna lo state globale del prodotto corrente con lo stock modificato 
+ nell'array di tutti i reparti inserendo la modifica nel corretto array del reparto 
+ e del sottoreparto corrispondente al prodotto in questione:
+ */
+ const updateValueInAllDepartments = ()=>{
   //modifica alldepartments:
   /*Variabile di tutti i rep. che verrà modificata per poi 
-  essere pushata nell'arrai dello state globale di tutti i rep. "allDepartments"
+  essere pushata nell'array dello state globale di tutti i rep. "allDepartments"
   */
   let alldep = allDepartments;
   //Reparto attualmente selezionato:
-  let currentDepartment = alldep.filter(dep => dep.nome=== departmentSelected.nome)
+  let currentDepartment = alldep?.filter(dep => dep.nome === departmentSelected.nome)
+  console.log("currentdepartment:", currentDepartment)
   //Sottoreparto alìttualmente selezionato:
-  let currentSubdepartment = currentDepartment[0].sottoreparti.filter( sub => sub.nome === subdepartmentSelected.nome)
+  let currentSubdepartment = currentDepartment[0]?.sottoreparti.filter( sub => sub.nome === subdepartmentSelected.nome)
   //Prodotti attualmente presenti nel sottorep. sleelzionato:
-  let currentProducts = currentSubdepartment[0].prodotti;
+  let currentProducts = currentSubdepartment[0]?.prodotti;
   /* 
   Modifica dell'array dei prodotti attualmente presenti nel sottorep.
      con lo scopo di aggiornare lo stock appena modificato del prodotto selezionato:
   */
-  currentProducts = currentProducts.map(prod => prod.nome === productSelected.nome ? prod={...prod, stock:productSelected.stock} : prod=prod)
+  currentProducts = currentProducts?.map(prod => prod.nome === productSelected.nome ? prod={...prod, stock:productSelected.stock} : prod=prod)
   /* 
   Modifica dell'array allDep ovvero aggiornamento dello stock del prodotto selezionato,
   per poi pusharlo nello state globale di tutti i reparti.
   */
   alldep.map( dep =>{
     return dep.sottoreparti.map( sub =>{
-     return sub.nome === currentSubdepartment[0].nome ? sub.prodotti = currentProducts : sub.prodotti = sub.prodotti
+     return sub.nome === currentSubdepartment[0]?.nome ? sub.prodotti = currentProducts : sub.prodotti = sub.prodotti
     })
   })
-
   //aggiornamento dello state globale di tutti i reparti :
   editAllDepartments(alldep)
-}
+ }
 
  useEffect(()=>{
-  // const getUnits = async ()=>{
-  //   let res = await axios('../reparti.json')
-  //   console.log(res)
-  //  }
-  //  getUnits()
-  setMsg(`Hai appena aggiornato lo stock ${productToShow.stock}`)
-  
   updateValueInAllDepartments()
-  console.log(departmentSelected, subdepartmentSelected)
-  },[productToShow])
+  },[departmentSelected, subdepartmentSelected, productToShow])
 
 return (
      <>
-     <p>{msg}</p>
      <div className="p-10 flex flex-col">
         <label htmlFor="stock" className="block text-sm font-medium leading-6 text-gray-900">
           Stock di <span className="text-lmgreen">{productToShow.nome}</span>

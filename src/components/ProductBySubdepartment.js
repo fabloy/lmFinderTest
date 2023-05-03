@@ -7,7 +7,9 @@ const ProductsBySubdepartment = ()=>{
   const reducer = useContext( UnitsStateContext )
   const [products, setProducts] = useState(reducer.productsToShow)
 
-  
+  useEffect(()=>{
+    setProducts(reducer.productsToShow)
+  },[products])
  
  return(
       <div>
