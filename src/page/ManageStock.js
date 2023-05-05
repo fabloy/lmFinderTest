@@ -62,6 +62,7 @@ export default function ManageStock() {
 
  useEffect(()=>{
   updateValueInAllDepartments()
+  console.log("managestock",departmentSelected, subdepartmentSelected)
   },[departmentSelected, subdepartmentSelected, productToShow])
 
 return (
@@ -96,12 +97,9 @@ return (
         </button>
      </div>
      
-     {/* <GoBack /> */}
-     <button>
-      <Link to={`/productdetail/:productname`}>
-        go back
-      </Link>
-     </button>
+     <GoBack 
+      urlPath={ `/productdetail/${productToShow.nome}`}
+     />
     </>
     )
   }

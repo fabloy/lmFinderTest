@@ -26,14 +26,12 @@ const ProductCardDetail = ()=>{
       setCurrentSubdepartment(
         getDepAndSubFromProduct(productSelected, allDepartments, allSubdepartments).subdepartment
       )
-   
-      let val = getDepAndSubFromProduct(productSelected, allDepartments, allSubdepartments)
     
-    let departmentToSet = allDepartments.filter( dep => dep.nome===val.department)
+    let val = getDepAndSubFromProduct(productSelected, allDepartments, allSubdepartments)
+    let departmentToSet = allDepartments.filter( dep => dep.nome===val.department )
     setDepartmentSelected(departmentToSet[0]);
     let subdepartmentToSet = departmentToSet[0].sottoreparti.filter(subd=> subd.nome=== val.subdepartment)
     setSubdepartmentSelected(subdepartmentToSet[0]);
-    console.log("in productdetail",departmentSelected, subdepartmentSelected)
     },[currentDepartment, currentSubdepartment])
 
     return(
@@ -69,9 +67,8 @@ const ProductCardDetail = ()=>{
       <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
        rotture: {productSelected.rotture} pz.
       </span>
-      
      </div>
-     
+    
     </div>
     )
 }

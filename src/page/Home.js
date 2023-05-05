@@ -12,6 +12,8 @@ const Home = ()=>{
     
     useEffect(()=>{
         setUnits( reducer.allDepartments )
+        localStorage.removeItem("searchAll");
+        console.log(localStorage.getItem("searchAll"))
      },[units])
 
     return (
@@ -27,7 +29,10 @@ const Home = ()=>{
             </div>
             
             <section className='w-full fixed bottom-5 left-0 flexdefault '>
-             <button className='rounded-lg p-2 w-1/3 shadow-md text-slate-100 bg-gradient-to-b from-green-400 to-green-600 hover:from-green-800 hover:to-green-950' >
+             <button 
+              className='rounded-lg p-2 w-1/3 shadow-md text-slate-100 bg-gradient-to-b from-green-400 to-green-600 hover:from-green-800 hover:to-green-950' 
+              onClick={()=>localStorage.setItem("searchAll", "true")}
+              >
               <Link to={`/searchall`} > 
                Tutti i prodotti
                </Link>

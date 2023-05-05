@@ -21,4 +21,16 @@
 piuttosto utilizzare al massimo lo state globale context creato,
 mostrando i dati nella view e utilizzando delle funzioni "dispatch" per modificare 
 i valori nel reducer.
+-----------------------------------------------------------------------------------------
+
+*In subdepartment dare un occhiata al setProdToShow in componente "Input", il setProdToShow
+probabilmente non tiene conto del subdepartment selezioanto, esso viene selezionato dall'option
+in alto.
+*In subdepartment dove viene richiamato il compoenente SelectInputComponent la funzione passata
+come props ovvero subdSelected perchè si potrebbe impostare una funzione setQualcosa che modifica
+lo state locale del sottoreparto di Subdepartment, in modo che quando poi l'input viene triggerato
+tenga conto nell ricerca tra i prodotti del sottoreparto selezionato e in basso possa apparire
+la lista di prodotti da visualizzare corretta, dunque con solo i prodotti del sottoreparto.
+di base l'option funziona bene, è l'input di ricerca che non funziona al 100%
+
 

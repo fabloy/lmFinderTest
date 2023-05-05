@@ -17,18 +17,22 @@ const Subdepartment = ()=>{
   const reducer = useContext( UnitsStateContext ) //state globale
   const params = useParams()
   const [prodToShow, setProdToShow] = useState([]) //state locale
+  const [currentSubdepartment, setCurrentSubdepartment] = useState()
 
   useEffect(()=>{
 
     if(!params.unitname && !params.subdepartment){
       reducer.setProductsToShow(getAllProducts().allProducts)
       setProdToShow(reducer.productsToShow)
-      console.log("Subdpertment", reducer.productsToShow)
+
     }else{
      /* altrimenti se i params  sono settati mostrami tutti i prodotti esistenti 
      nel sottoreparto selezionato*/
-      setProdToShow( reducer.subdepartmentSelected.prodotti )
-      reducer.setProductsToShow( reducer.subdepartmentSelected.prodotti )
+     let subdepartmentFind = reducer.allSubdepartments().filter(s=>s.nome===params.subdepartment);
+     setCurrentSubdepartment(subdepartmentFind[0])
+     reducer.setSubdepartmentSelected(subdepartmentFind[0])
+     setProdToShow( reducer.subdepartmentSelected.prodotti )
+     reducer.setProductsToShow( reducer.subdepartmentSelected.prodotti )
     }
 
     //gestire meglio gli if
@@ -52,21 +56,18 @@ const Subdepartment = ()=>{
          </p> 
           { !params.unitname && !params.subdepartment ? 
           <SelectInputComponent 
-           subdSelected={(e)=>{
+           subdSelected={(subdepartmentValue)=>{
+            let subdepartmentFind = reducer.allSubdepartments().filter(s=>s.nome===subdepartmentValue);
+            setCurrentSubdepartment(subdepartmentFind[0])
             setProdToShow( reducer.productsToShow )
             
-            //Qua bisogna selezionare il reparto corrente partendo dal sottorepartoselezioanto
             reducer.allDepartments.map( dep => dep.sottoreparti.map( sub =>{
-           
               if(sub.nome === reducer.subdepartmentSelected.nome){
-                
                 reducer.setDepartmentSelected(dep)
-                // reducer.setSubdepartmentSelected([sub])
-                console.log(reducer.departmentSelected)
               }
               return
             }))
-            
+            console.log(reducer.departmentSelected, reducer.subdepartmentSelected, reducer.productsToShow)
           }} 
           /> 
           :
