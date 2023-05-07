@@ -17,6 +17,7 @@ const getValueOfInput = (inputValue, params)=>{
      let prodFind = subdepartmentToFind.prodotti.filter( product => product.nome.includes(inputValue) )
      return prodFind
    }else{
+    //
     let allProducts = getAllProducts().allProducts
     let prodFind =  allProducts.filter( product => product.nome.includes(inputValue) )
     return prodFind

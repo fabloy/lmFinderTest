@@ -20,23 +20,20 @@ const Subdepartment = ()=>{
   const [currentSubdepartment, setCurrentSubdepartment] = useState()
 
   useEffect(()=>{
-
     if(!params.unitname && !params.subdepartment){
       reducer.setProductsToShow(getAllProducts().allProducts)
-      setProdToShow(reducer.productsToShow)
-
+      // setProdToShow(reducer.productsToShow)
     }else{
      /* altrimenti se i params  sono settati mostrami tutti i prodotti esistenti 
      nel sottoreparto selezionato*/
      let subdepartmentFind = reducer.allSubdepartments().filter(s=>s.nome===params.subdepartment);
      setCurrentSubdepartment(subdepartmentFind[0])
      reducer.setSubdepartmentSelected(subdepartmentFind[0])
-     setProdToShow( reducer.subdepartmentSelected.prodotti )
+    //  setProdToShow( reducer.subdepartmentSelected.prodotti )
      reducer.setProductsToShow( reducer.subdepartmentSelected.prodotti )
     }
-
-    //gestire meglio gli if
-  },[])
+    console.log("useEffect")
+  },[prodToShow])
 
     return(
         <main>
@@ -60,14 +57,6 @@ const Subdepartment = ()=>{
             let subdepartmentFind = reducer.allSubdepartments().filter(s=>s.nome===subdepartmentValue);
             setCurrentSubdepartment(subdepartmentFind[0])
             setProdToShow( reducer.productsToShow )
-            
-            reducer.allDepartments.map( dep => dep.sottoreparti.map( sub =>{
-              if(sub.nome === reducer.subdepartmentSelected.nome){
-                reducer.setDepartmentSelected(dep)
-              }
-              return
-            }))
-            console.log(reducer.departmentSelected, reducer.subdepartmentSelected, reducer.productsToShow)
           }} 
           /> 
           :
@@ -80,12 +69,16 @@ const Subdepartment = ()=>{
          
          <Input 
               getValueInput={(e)=>{
-                //se in option è stato selezionato un sottoreparto cerca ta i prodotti di quel sottorepato:
-                reducer.subdepartmentSelected.length>0 ? reducer.setProductsToShow( getProductByOptionSelected( e, reducer.subdepartmentSelected[0].nome) )
-                : //altrimenti cerca fra i prodotti di tutti i reaprti:
-                reducer.setProductsToShow( getValueOfInput(e, params) )
-                setProdToShow( reducer.productsToShow )
-               }
+                if(reducer.subdepartmentSelected===undefined || reducer.subdepartmentSelected.length<=0){
+                  let productsFind = getValueOfInput(e, params)
+                  reducer.setProductsToShow(productsFind)
+                  setProdToShow( reducer.productsToShow )
+                }else{
+                  let productsFind = getProductByOptionSelected( e, reducer.subdepartmentSelected.nome)
+                  reducer.setProductsToShow(productsFind)
+                  setProdToShow(reducer.productsToShow)
+                }
+              }
               }
          />
             {

@@ -9,7 +9,7 @@ const ProductsBySubdepartment = ()=>{
 
   useEffect(()=>{
     setProducts(reducer.productsToShow)
-    console.log("productBySubd",reducer.departmentSelected, reducer.subdepartmentSelected, reducer.productsToShow)
+   
   },[products])
  
  return(

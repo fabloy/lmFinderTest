@@ -5,6 +5,9 @@ const Input = ({getValueInput})=>{
  let productSearched = useRef();
  let params = useParams()
 
+useEffect(()=>{
+ console.log("input component")
+},[])
 
  return(
     <Fragment>
