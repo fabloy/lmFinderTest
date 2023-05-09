@@ -21,7 +21,9 @@ useEffect(()=>{
         id="product"
         placeholder="nome prodotto"
          type="text"  
-         className="text-center mx-auto block w-2/3 font-medium rounded-md border-0 py-1.5 text-lmgreen shadow-sm ring-1 ring-inset ring-lmgreen placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-lmgreen focus:outline-none sm:text-sm sm:leading-6"
+         className="
+         text-center mx-auto block  font-medium rounded-md border-0 py-1.5 text-lmgreen shadow-sm ring-1 ring-inset ring-lmgreen placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-lmgreen focus:outline-none sm:text-sm sm:leading-6
+         md:w-1/5"
          ref={productSearched} 
          onChange={()=>getValueInput(productSearched.current.value)
       }/>

@@ -7,7 +7,7 @@ const GoBack = ({urlPath})=>{
     const params = useParams()
     const reducer = useContext(UnitsStateContext)
     return(
-        <nav className="fixed bottom-5 w-full">
+        <nav className="fixed bottom-5 w-full lg:hidden">
         <Link 
          className="inline-block w-4/4 flex justify-center"  
          to={ urlPath ? `${urlPath}` : (params.unitname && params.subdepartment) ? `/unit/${params.unitname}` : `/`}
