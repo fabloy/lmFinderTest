@@ -15,5 +15,27 @@
         @apply text-center;
         @apply text-gray-700;
     }
+
+    .alert{
+        left: 50%;
+        transform: translate(-50%);
+        transition: all;
+        transition-duration: 900ms;
+        position: fixed;
+        z-index: 100;
+        opacity: .8;
+        @apply bg-gradient-to-t;
+        @apply to-green-800  from-green-400;
+        @apply rounded-md mx-auto lg:w-1/5 px-2 py-2;
+    }
+    .alertOn{
+        max-height:fit-content;
+        overflow: visible;
+    }
+
+    .alertOff{
+        opacity: 0;
+        overflow: hidden;
+    }
     
 } 

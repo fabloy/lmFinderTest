@@ -1,9 +1,8 @@
 import { Fragment, useEffect, useRef } from "react";
-import { useParams } from "react-router-dom";
 
 const Input = ({getValueInput})=>{
  let productSearched = useRef();
- let params = useParams()
+
 
 useEffect(()=>{
  console.log("input component")

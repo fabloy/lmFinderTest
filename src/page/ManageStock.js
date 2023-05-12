@@ -61,13 +61,13 @@ export default function ManageStock() {
   editAllDepartments(alldep)
  }
 
-const handleAlert = ()=>{
+const hideAlert = ()=>{
   setToggleAlert(false)
-} 
+}
+
  useEffect(()=>{
   updateValueInAllDepartments()
-  window.setTimeout(handleAlert, 2500)
-  
+  window.setTimeout(hideAlert, 2500)
   },[departmentSelected, subdepartmentSelected, productToShow])
 
 return (
@@ -103,7 +103,7 @@ return (
           bg-size-200 bg-gradient-to-t to-green-800  from-green-400 hover:bg-right-bottom transition-all duration-500"
          onClick={()=>{
           editStock()
-          setToggleAlert(!toggleAlert)
+          setToggleAlert(true)
         }}       
          >
          Modifica
