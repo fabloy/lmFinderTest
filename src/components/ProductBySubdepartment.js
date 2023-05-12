@@ -14,8 +14,8 @@ const ProductsBySubdepartment = ()=>{
  
  return(
       <div>
-       <section className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 lg:py-5 ">
-        <ul className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+       <section className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:py-16 lg:max-w-7xl lg:px-8">
+        <ul className=" mx-auto grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 ">
          {
           reducer.productsToShow?.map((p,index)=>
           <li 

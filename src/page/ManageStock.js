@@ -1,9 +1,8 @@
 
 import GoBack from "../components/GoBack";
-import { Link, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { UnitsStateContext } from "../context-component/ContextComponent"
-import getDepAndSubFromProduct from "../methods/getDepAndSubFromProd";
+import Alert from "../components/minicomponents/Alert";
 
 export default function ManageStock() {
  
@@ -14,11 +13,14 @@ export default function ManageStock() {
   subdepartmentSelected, 
   editProductSelected, 
   allDepartments
-  } = useContext(UnitsStateContext)
+  } = useContext(UnitsStateContext) // <--- states globali
+  //state locali:
  const [newStock, setNewStock] = useState(productSelected.stock)
  const [productToShow, setProductToShow] = useState(productSelected)
+ const [toggleAlert, setToggleAlert] = useState(false)
  
- //Funzione che aggiornane nel reducer lo state globale di productSelected e dello state locale productToSho
+ 
+ //Funzione che aggiornane nel reducer lo state globale di productSelected e dello state locale productToShow
  const editStock = ()=>{
   editProductSelected({...productSelected, stock:newStock}) //aggiornamento state globale
   setProductToShow({...productSelected, stock:newStock}) // aggiornamento state locale
@@ -37,7 +39,6 @@ export default function ManageStock() {
   let alldep = allDepartments;
   //Reparto attualmente selezionato:
   let currentDepartment = alldep?.filter(dep => dep.nome === departmentSelected.nome)
-  console.log("currentdepartment:", currentDepartment)
   //Sottoreparto alìttualmente selezionato:
   let currentSubdepartment = currentDepartment[0]?.sottoreparti.filter( sub => sub.nome === subdepartmentSelected.nome)
   //Prodotti attualmente presenti nel sottorep. sleelzionato:
@@ -60,20 +61,29 @@ export default function ManageStock() {
   editAllDepartments(alldep)
  }
 
+const handleAlert = ()=>{
+  setToggleAlert(false)
+} 
  useEffect(()=>{
   updateValueInAllDepartments()
-  console.log("managestock",departmentSelected, subdepartmentSelected)
+  window.setTimeout(handleAlert, 2500)
+  
   },[departmentSelected, subdepartmentSelected, productToShow])
 
 return (
      <>
+     <Alert 
+      visible={toggleAlert}
+      title="Stock rettificato: "
+      msg={` ${productSelected.stock}pz.`}
+     />
      <div className="p-10 flex flex-col">
         <label htmlFor="stock" className="block text-sm font-medium leading-6 text-gray-900">
           Stock di <span className="text-lmgreen">{productToShow.nome}</span>
         </label>
-        <div className="relative mt-2 mb-4 rounded-md shadow-sm">
+        <div className="relative mt-2 mb-4 rounded-md shadow-sm mx-auto lg:w-1/4">
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-            <span className="text-gray-500 sm:text-sm inline-block mr-1">
+            <span className="text-gray-500 sm:text-sm inline-block mr-1 ">
                 Pz.
             </span>
           </div>
@@ -81,16 +91,19 @@ return (
             type="number"
             name="stock"
             id="stock"
-            className="block w-full rounded-md border-0 py-2 pl-10 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-lmgreen sm:text-sm sm:leading-6"
+            className="block w-full pr-1 mx-auto rounded-md border-0 py-2 pl-10 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-lmgreen sm:text-sm sm:leading-6 "
             placeholder={newStock}
             onChange={(e)=> setNewStock( Number( e.target.value ) ) }
           />
           
         </div>
         <button 
-         class="rounded-lg bg-gradient-to-b from-green-400 to-green-600 p-2 text-white mx-auto"
+         class="
+          rounded-lg bg-gradient-to-b p-2 text-white mx-auto 
+          bg-size-200 bg-gradient-to-t to-green-800  from-green-400 hover:bg-right-bottom transition-all duration-500"
          onClick={()=>{
           editStock()
+          setToggleAlert(!toggleAlert)
         }}       
          >
          Modifica

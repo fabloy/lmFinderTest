@@ -19,7 +19,7 @@ const ProductDetail= ()=>{
      },[currentDepartment, currentSubdepartment])
      
     return (
-        <section className="flex justify-center p-5 h-full">
+        <section className="flex justify-center p-5 h-full lg:p-3 lg:w-full ">
          <ProductCardDetail />
          <GoBack 
           urlPath={localStorage.getItem("searchAll")==="true" ? `/searchall` : `/unit/${currentDepartment}/${currentSubdepartment}`}

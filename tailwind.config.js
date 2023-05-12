@@ -18,7 +18,10 @@ module.exports = {
         '80vh':'80vh'
       },
       width:{
-        '33%':'33%'
+        '33%':'33%',
+        '50%':'50%',
+        '70%':'70%',
+        '100%':'100%'
       },
       backgroundSize: { //trucco per far funzionare la class transition con bg-gradient
         "size-200": "200% 200%",

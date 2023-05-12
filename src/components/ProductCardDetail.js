@@ -35,15 +35,17 @@ const ProductCardDetail = ()=>{
     },[currentDepartment, currentSubdepartment])
 
     return(
-     <div class="max-w-sm rounded overflow-hidden shadow-2xl">
+     <div class="max-w-sm rounded overflow-hidden shadow-2xl 
+       lg:flex lg:flex-row  lg:justify-center lg:overflow-visible lg:w-3/4 lg:max-w-4xl">
        <img 
-        class="w-full" 
+        class="w-full lg:max-w-md lg:h-full lg:block " 
         src="https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg"
         alt="Sunset in the mountains" />
-       <div class="px-6 py-4">
+      <aside className="flex flex-col justify-around">
+       <div class="px-6 lg:h-fit">
        <div class="font-bold text-xl mb-2">
        {productSelected.nome}
-        </div>
+       </div>
        <p class="text-gray-700 text-base">
          prezzo: <span className="text-lmgreen font-semibold">{productSelected.prezzo}$</span>
        </p>
@@ -54,21 +56,25 @@ const ProductCardDetail = ()=>{
        sottoreparto: <span className="text-lmgreen font-semibold">{currentSubdepartment}</span>
        </p>
      </div>
-     <div class="px-6 pt-4 pb-2 text-center">
+     <div class="px-6 pt-4 pb-2 text-center lg:h-fit ">
+
+      <span class="inline-block w-full bg-gray-200 rounded-md px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+       venduti: {productSelected.venduti} pz.
+      </span>
+      <span class="inline-block w-full bg-gray-200 rounded-md px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+       rotture: {productSelected.rotture} pz.
+      </span>
       <Link to={`/managestock/${productSelected.nome}`}>
       <span 
-      class="inline-block w-full text-center bg-gray-200 rounded-md px-3 py-1 text-sm font-bold text-gray-700 mr-2 mb-2">
+      class="
+      bg-size-200 bg-gradient-to-t to-green-800  from-green-400 hover:bg-right-bottom transition-all duration-500
+      w-full inline-block text-center rounded-md px-3 py-2 text-sm font-bold text-gray-100 mr-2 mt-2
+      ">
       stock: {productSelected.stock} pz.
       </span>
       </Link>
-      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-       venduti: {productSelected.venduti} pz.
-      </span>
-      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-       rotture: {productSelected.rotture} pz.
-      </span>
      </div>
-    
+     </aside>
     </div>
     )
 }

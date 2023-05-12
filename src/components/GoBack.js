@@ -13,7 +13,7 @@ const GoBack = ({urlPath})=>{
          to={ urlPath ? `${urlPath}` : (params.unitname && params.subdepartment) ? `/unit/${params.unitname}` : `/`}
          >
           <button 
-           className="rounded-xl p-2 w-1/5 my-5 shadow-md text-slate-100 bg-gradient-to-b from-green-400 to-green-600 hover:from-green-800 hover:to-green-950"
+           className="rounded-xl p-2 w-1/5 my-5 shadow-md text-slate-100 bg-size-200 bg-gradient-to-t to-green-800  from-green-400 hover:bg-right-bottom transition-all duration-500"
            onClick={()=>{
             reducer.setProductsToShow([])
             reducer.setSubdepartmentSelected([])
