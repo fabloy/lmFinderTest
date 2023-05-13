@@ -4,8 +4,8 @@ uno di tutti i sottoreparti restituisce il nome del reparto e del sottoreparto c
 al prodotto passato come argomento */
 
 const getDepAndSubFromProduct = (productSelected, allDepartments, allSubdepartments)=>{
-// nuovo oggetto che restituirà il nome del reparto e del sottoreparto dell'oggetto dato.
-    let newObj = {} 
+// nuovo oggetto che restituirà il nome del reparto e del sottoreparto dell'oggetto dato.  
+let newObj = {} 
 
     /** In questo snippet viene iterato l'array di tutti i sottoreparti 
      * ad ogni giro viene preso ogni singolo prodotto dell'araay prodotti e
@@ -13,7 +13,7 @@ const getDepAndSubFromProduct = (productSelected, allDepartments, allSubdepartme
      * anche aggiunta la chiave sottorep che conterrà il nome del sottoreparto
      */
     allSubdepartments().map( s => s.prodotti.map( p=>{
-     if(p.nome === productSelected.nome){
+     if(p.nome.toLowerCase() === productSelected.nome.toLowerCase()){
      return newObj = {...p, sottorep: s.nome}
      }
      return

@@ -19,7 +19,9 @@ const getValueOfInput = (inputValue, params)=>{
    }else{
     //
     let allProducts = getAllProducts().allProducts
-    let prodFind =  allProducts.filter( product => product.nome.includes(inputValue) )
+    let prodFind =  allProducts.filter( product =>{
+      return product.nome.toLowerCase().includes( inputValue.toLowerCase() )
+    }  )
     return prodFind
    }
  
