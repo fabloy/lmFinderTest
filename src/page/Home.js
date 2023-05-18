@@ -13,11 +13,11 @@ const Home = ()=>{
     useEffect(()=>{
         setUnits( reducer.allDepartments )
         localStorage.removeItem("searchAll");
-        console.log(localStorage.getItem("searchAll"))
+      
      },[units])
 
     return (
-        <main className='my-5 bg-white p-5 w-full min-h-80vh '>
+        <main className='my-5 bg-white p-5 w-full min-h-80vh mx-auto'>
             <div className='w-full'>
                 <h4 className=' text-center text-2xl text-lmgreen font-semibold'>Cerca prodotto</h4>
                 <h3 className='text-center text-slate-700 text-lg'>seleziona il tipo di reparto</h3>

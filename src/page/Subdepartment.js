@@ -22,7 +22,7 @@ const Subdepartment = ()=>{
   useEffect(()=>{
     if(!params.unitname && !params.subdepartment){
       reducer.setProductsToShow(getAllProducts().allProducts)
-      // setProdToShow(reducer.productsToShow)
+      setProdToShow(reducer.productsToShow)
     }else{
      /* altrimenti se i params  sono settati mostrami tutti i prodotti esistenti 
      nel sottoreparto selezionato*/
@@ -31,9 +31,10 @@ const Subdepartment = ()=>{
      reducer.setSubdepartmentSelected(subdepartmentFind[0])
     //  setProdToShow( reducer.subdepartmentSelected.prodotti )
      reducer.setProductsToShow( reducer.subdepartmentSelected.prodotti )
+     console.log("else")
     }
-    console.log("useEffect")
-  },[prodToShow])
+    
+  },[])
 
     return(
         <main>
