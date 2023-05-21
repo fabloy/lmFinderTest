@@ -35,15 +35,16 @@ const ProductCardDetail = ()=>{
     },[currentDepartment, currentSubdepartment])
 
     return(
-     <div class="max-w-sm rounded overflow-hidden shadow-2xl 
-       lg:flex lg:flex-row  lg:justify-center lg:overflow-visible lg:w-3/4 lg:max-w-4xl">
+     <div class="mx-auto rounded overflow-hidden shadow-2xl border border-slate-400 
+       md:flex md:flex-row  md:justify-center md:overflow-visible lg:w-3/4 lg:max-w-3xl lg:mt-8">
        <img 
-        class="w-full lg:max-w-md lg:h-full lg:block " 
-        src="https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg"
+        class="max-h-50% w-3/5 mx-auto md:max-h-fit md:max-w-md md:h-full md:block lg:w-2/4" 
+        src="https://www.tecnomat.it/pub/media/catalog/product/d/3/6/a/lastra_cartongesso_fassa_ba_x_x_cm_10022940_picture.JPG?auto=webp&quality=100&format=jpeg"
         alt="Sunset in the mountains" />
-      <aside className="flex flex-col justify-around">
+        <hr />
+      <aside className="flex flex-col justify-around lg:w-2/4 border border-slate-200">
        <div class="px-6 lg:h-fit">
-       <div class="font-bold text-xl mb-2">
+       <div class="font-bold text-xl mb-2 mt-2">
        {productSelected.nome}
        </div>
        <p class="text-gray-700 text-base">
@@ -64,13 +65,18 @@ const ProductCardDetail = ()=>{
       <span class="inline-block w-full bg-gray-200 rounded-md px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
        rotture: {productSelected.rotture} pz.
       </span>
+
+      <p className=" text-sm text-gray-700">Stock:</p>
       <Link to={`/managestock/${productSelected.nome}`}>
       <span 
       class="
       bg-size-200 bg-gradient-to-t to-green-800  from-green-400 hover:bg-right-bottom transition-all duration-500
       w-full inline-block text-center rounded-md px-3 py-2 text-sm font-bold text-gray-100 mr-2 mt-2
       ">
-      stock: {productSelected.stock} pz.
+      {productSelected.stock} pz.
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 inline-block">
+       <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32L19.513 8.2z" />
+       </svg>
       </span>
       </Link>
      </div>

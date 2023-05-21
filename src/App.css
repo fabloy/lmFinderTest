@@ -5,7 +5,6 @@
 }
 
 body{
-  max-width: 1400px;
-  min-height: 100vh;
-  background-color: aliceblue;
+  max-width: 1600px;
+  min-height: 120vh;
 }

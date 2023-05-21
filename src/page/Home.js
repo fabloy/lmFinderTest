@@ -33,22 +33,23 @@ const Home = ()=>{
             </div>
             
             <section className='w-full fixed bottom-5 left-0 flexdefault md:relative md:my-11'>
-             <button /*
-             per far funzionare il transition sul bacground color
-             c'è bisogno di dare un bg-size maggiore del 100% dell'elemento per poi quando avviene l'hover
-             spostare il bg con ad esempio bg-right-bottom che te lo sposta a destra in basso.
-             */
-              className='
-              rounded-lg p-2 w-1/3 shadow-md text-slate-100 
+             <Link
+              /*
+              per far funzionare il transition sul bacground color
+              c'è bisogno di dare un bg-size maggiore del 100% dell'elemento per poi quando avviene l'hover
+              spostare il bg con ad esempio bg-right-bottom che te lo sposta a destra in basso.
+              */
+              className=' block
+              rounded-lg p-2 w-1/3 shadow-md text-slate-100 text-center 
               bg-size-200 bg-gradient-to-t to-green-800  from-green-400 hover:bg-right-bottom transition-all duration-500
               sm:w-1/6 sm:rounded-md lg:hover:py-3' 
+              to={`/searchall`} 
               onClick={()=>localStorage.setItem("searchAll", "true")}
-              >
-              <Link to={`/searchall`} > 
+              > 
+              
                Tutti i prodotti
-               </Link>
-              </button>
-            
+              
+              </Link>
             </section>
          
             

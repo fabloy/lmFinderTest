@@ -6,10 +6,35 @@ import { Link } from "react-router-dom"
 const GoBack = ({urlPath})=>{
     const params = useParams()
     const reducer = useContext(UnitsStateContext)
+    const [isScrolling, setIsScrolling] = useState(false)
+    const handleScrolling = ()=>{
+        setIsScrolling(true)
+        
+
+        // Imposta un timer per verificare l'inattività dello scroll dopo 1 secondo
+         setTimeout(() => {
+          setIsScrolling(false);
+        }, 1000);
+     }
+
+    useEffect(()=>{
+        window.addEventListener("scroll",handleScrolling)
+        return()=>{
+         window.removeEventListener("scroll",handleScrolling)
+        } 
+    },[])
+
     return(
-        <nav className="fixed bottom-5 w-full lg:w-1/3 lg:right-2/4 lg:translate-x-2/4">
+        <nav 
+         className={
+          `
+          fixed bottom-0 rounded w-full lg:right-2/4 lg:translate-x-2/4 p-2 bg-slate-200 bg-opacity-60 transition-all easy-in duration-500
+          ${isScrolling ? 'bg-opacity-0' : ''}
+          `
+          }
+         >
         <Link 
-         className="inline-block w-4/4 flex justify-center"  
+         className={`inline-block w-4/4 flex justify-center `}  
          to={ urlPath ? `${urlPath}` : (params.unitname && params.subdepartment) ? `/unit/${params.unitname}` : `/`}
          >
           <button 

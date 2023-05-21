@@ -21,15 +21,16 @@ const ProductsBySubdepartment = ()=>{
           <li 
            key={index}
            onClick={()=> reducer.setProductSelected(p)}
+           className="rounded-lg shadow-lg  bg-slate-100 border border-slate-400 hover:border-lmgreen hover:shadow-green-300 hover:shadow-md"
            >
            <Link className="group" to={ `/productdetail/${p.nome}`}>
             <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-             <img src="https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center group-hover:opacity-75" />
+             <img src="https://www.tecnomat.it/pub/media/catalog/product/d/3/6/a/lastra_cartongesso_fassa_ba_x_x_cm_10022940_picture.JPG?auto=webp&quality=100&format=jpeg" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." />
             </div>
-           <h3 class="mt-4 text-sm text-gray-700">
+           <h3 class="m-2  text-sm text-gray-700">
             {p?.nome} 
            </h3>
-           <p class="mt-1 text-lg font-medium text-gray-900">
+           <p class="m-2  text-lg font-medium text-gray-900">
             {p?.prezzo}$
            </p>
            </Link>

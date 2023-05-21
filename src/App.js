@@ -12,10 +12,10 @@ import ManageStock from "../src/page/ManageStock"
 function App() {
  
   return (
-    <div className=" bg-slate-100 w-full h-screen mx-auto flex flex-col ">
+    <div className="pt-20 w-full h-screen mx-auto flex flex-col ">
       <Header></Header>
      
-      <BrowserRouter>
+      
        <ContextComponent child={ 
         <Routes>
           <Route path="/" element={<Home></Home>} /> 
@@ -27,7 +27,7 @@ function App() {
         </Routes>
        }>
        </ContextComponent>
-      </BrowserRouter>
+     
 
      
     </div>

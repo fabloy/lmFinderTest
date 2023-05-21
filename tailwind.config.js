@@ -15,12 +15,28 @@ module.exports = {
       },
       minHeight: {
         '10vh': '10vh',
-        '80vh':'80vh'
+        '70vh':'70vh',
+        '80vh':'80vh',
+        '120vh':'120vh'
+
+      },
+      maxHeight:{
+        '10vh':'10vh',
+        '70vh':'70vh',
+        '80vh':'80vh',
+        '50%':'50%',
+        '30%':'30%'
+      },
+      maxWidth:{
+        '65%':'65%',
+        '70%':'70%',
       },
       width:{
         '33%':'33%',
         '50%':'50%',
         '70%':'70%',
+        '75%':'75%',
+        '80%':'80%',
         '100%':'100%'
       },
       backgroundSize: { //trucco per far funzionare la class transition con bg-gradient
