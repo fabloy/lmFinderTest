@@ -28,7 +28,7 @@ const GoBack = ({urlPath})=>{
         <nav 
          className={
           `
-          fixed bottom-0 rounded w-full lg:right-2/4 lg:translate-x-2/4 p-2 bg-slate-200 bg-opacity-60 transition-all easy-in duration-500
+          fixed bottom-0 border-t border-slate-300 rounded w-full lg:right-2/4 lg:translate-x-2/4 p-2 bg-slate-200 bg-opacity-60 transition-all easy-in duration-500
           ${isScrolling ? 'bg-opacity-0' : ''}
           `
           }

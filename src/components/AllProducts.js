@@ -19,7 +19,7 @@ const AllProducts = ()=>{
           productsToShow?.map( prod => 
           <li 
            onClick={()=> reducer.setProductSelected(prod)}
-           className={`rounded-lg shadow-lg  bg-slate-100 border border-slate-400 hover:border-lmgreen hover:shadow-green-300 hover:shadow-md `}
+           className={`w-3/4 mx-auto rounded-lg shadow-md shadow-slate-400  bg-slate-100 border border-slate-400 hover:border-lmgreen hover:shadow-green-300 hover:shadow-md lg:w-full`}
            >
            <Link className="group" to={ `/productdetail/${prod.nome}`}>
             <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 border border-slate-100 ">

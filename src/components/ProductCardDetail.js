@@ -35,7 +35,7 @@ const ProductCardDetail = ()=>{
     },[currentDepartment, currentSubdepartment])
 
     return(
-     <div class="mx-auto rounded overflow-hidden shadow-2xl border border-slate-400 
+     <div class="mx-auto rounded overflow-hidden shadow-md shadow-slate-400 border border-slate-400 
        md:flex md:flex-row  md:justify-center md:overflow-visible lg:w-3/4 lg:max-w-3xl lg:mt-8">
        <img 
         class="max-h-50% w-3/5 mx-auto md:max-h-fit md:max-w-md md:h-full md:block lg:w-2/4" 
